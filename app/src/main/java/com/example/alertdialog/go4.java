@@ -26,7 +26,7 @@ public class go4 extends AppCompatActivity {
         startActivity(intent);
     }
     public void go5 (View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, go5.class);
         startActivity(intent);
     }
 }

@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".go3">
     <Button
-        android:id="@+id/butStart"
+        android:id="@+id/butStart15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="464dp"
         android:text="button go 4"
         android:onClick="go4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/butMakHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="464dp"
+        android:text="button go Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

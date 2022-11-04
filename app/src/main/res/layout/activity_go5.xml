@@ -4,28 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".go2">
+    tools:context=".go5">
     <Button
         android:id="@+id/butStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="464dp"
-        android:text="button go 3"
-        android:onClick="go3"
+        android:text="go 5"
+        android:onClick="go6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/butStart1"
+        android:id="@+id/butMak2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="512dp"
-        android:onClick="goMak"
-        android:text="button go Mak"
+        android:layout_marginTop="464dp"
+        android:text="mak Home"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         level = save.getInt("Level", 0); buttonClick1();
-
+        mak = save.getInt("Mak", 0);
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
     }
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, go1.class);
         startActivity(intent);
     }
-
+int mak;
     // кнопка продолжить игру
     int level;
     public void buttonClick1() {
@@ -71,6 +71,38 @@ public class MainActivity extends AppCompatActivity {
                             case 3:
                                 try {
                                     Intent intent = new Intent(MainActivity.this, go4.class);
+                                    startActivity(intent);
+                                    finish();
+                                } catch (Exception e) { //
+                                }
+                                break;
+                            case 4:
+                                try {
+                                    Intent intent = new Intent(MainActivity.this, mak1.class);
+                                    startActivity(intent);
+                                    finish();
+                                } catch (Exception e) { //
+                                }
+                                break;
+                            case 5:
+                                try {
+                                    Intent intent = new Intent(MainActivity.this, Mak2.class);
+                                    startActivity(intent);
+                                    finish();
+                                } catch (Exception e) { //
+                                }
+                                break;
+                            case 6:
+                                try {
+                                    Intent intent = new Intent(MainActivity.this, go5.class);
+                                    startActivity(intent);
+                                    finish();
+                                } catch (Exception e) { //
+                                }
+                                break;
+                            case 7:
+                                try {
+                                    Intent intent = new Intent(MainActivity.this, go6.class);
                                     startActivity(intent);
                                     finish();
                                 } catch (Exception e) { //

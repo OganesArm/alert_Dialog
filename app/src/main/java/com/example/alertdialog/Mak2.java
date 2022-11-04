@@ -7,27 +7,26 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-public class go1 extends AppCompatActivity {
+public class Mak2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_go1);
+        setContentView(R.layout.activity_mak2);
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 0);
-        editor.putInt("Mak", 0);
+        editor.putInt("Mak", 1);
+        editor.putInt("Level", 5);
+
         editor.apply();
     }
-    // назначаем куда клавиша телефона назада отправит пользователя!
-    public void onBackPressed(){
-        Intent intent = new Intent(this, MainActivity.class);
+    public void go31(View view) {
+        Intent intent = new Intent(Mak2.this, go3.class);
         startActivity(intent);
     }
-
-    public void go2(View view) {
-        Intent intent = new Intent(this, go2.class);
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
