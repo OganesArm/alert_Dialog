@@ -26,6 +26,7 @@ Button butMak2;
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
         editor.putInt("Level", 7);
+        editor.putInt("Victory", 1);
         editor.apply();
 
 // Всплывающее достижение с изображением!
@@ -58,6 +59,7 @@ Button butMak2;
                             Intent intent = new Intent(go6.this, MainActivity.class);
                             startActivity(intent);
                             finish();
+
                         } else { finish(); }
                     }
                 });

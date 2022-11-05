@@ -18,7 +18,7 @@ public class Mak2 extends AppCompatActivity {
         SharedPreferences.Editor editor = save.edit();
         editor.putInt("Mak", 1);
         editor.putInt("Level", 5);
-
+        editor.putInt("Cot", 1);
         editor.apply();
     }
     public void go31(View view) {

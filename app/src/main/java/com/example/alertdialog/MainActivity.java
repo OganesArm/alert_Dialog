@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         level = save.getInt("Level", 0); buttonClick1();
-        mak = save.getInt("Mak", 0);
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
     }
 
@@ -34,7 +33,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, go1.class);
         startActivity(intent);
     }
-int mak;
+    public void goProgress(View view) {
+        Intent intent = new Intent(this, progress.class);
+        startActivity(intent);
+    }
+
     // кнопка продолжить игру
     int level;
     public void buttonClick1() {

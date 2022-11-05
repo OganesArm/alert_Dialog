@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.alertdialog.R;
 
@@ -19,6 +22,15 @@ public class go4 extends AppCompatActivity {
         SharedPreferences.Editor editor = save.edit();
         editor.putInt("Level", 3);
         editor.apply();
+
+        ImageView i = new ImageView(getApplicationContext());
+        i.setImageResource(R.drawable.cot);
+
+        Toast toast= new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(i);
+        toast.setGravity(Gravity.TOP, 0, 300);
+        toast.show();
     }
     // назначаем куда клавиша телефона назада отправит пользователя!
     public void onBackPressed(){
