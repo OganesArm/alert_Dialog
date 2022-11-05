@@ -32,6 +32,7 @@ Button butMak2;
         Intent intent = new Intent(this, go6.class);
         startActivity(intent);
     }
+
     int mak;
     public void buttonClickMakHome() {
         butMak2.setOnClickListener(

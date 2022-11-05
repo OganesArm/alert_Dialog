@@ -131,7 +131,7 @@ int mak;
         dialog.setTitle("Вы уверены что хотите начать новую игру?"); //заголовок для всполывающего окна
 
         dialog.setMessage("Все сохраненные данные сотрутся"); // подпись под заголовком
-        dialog.setCancelable(false); //всплывающее окно невозможно сбросить/закрыть.
+//      dialog.setCancelable(false); //всплывающее окно невозможно сбросить/закрыть.
 
         LayoutInflater inflater = LayoutInflater.from(this); //создали объект
         View vopros_window = inflater.inflate(R.layout.activity_vopros, null); // получаем нужный шаблон
