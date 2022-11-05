@@ -2,11 +2,20 @@ package com.example.alertdialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class go6 extends AppCompatActivity {
 Button butMak2;
@@ -19,7 +28,17 @@ Button butMak2;
         editor.putInt("Level", 7);
         editor.apply();
 
+// Всплывающее достижение с изображением!
+        ImageView i = new ImageView(getApplicationContext());
+        i.setImageResource(R.drawable.victory);
+
+        Toast toast= new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(i);
+        toast.setGravity(Gravity.TOP, 0, 300);
+        toast.show();
     }
+
     // назначаем куда клавиша телефона назада отправит пользователя!
     public void onBackPressed(){
         Intent intent = new Intent(this, MainActivity.class);
@@ -47,4 +66,5 @@ Button butMak2;
         } else {
             butMak2.setVisibility(View.GONE);
         }
-} }
+    }
+}
