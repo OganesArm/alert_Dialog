@@ -21,6 +21,7 @@ public class go4 extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
         editor.putInt("Level", 3);
+        editor.putInt("Cot", 1);
         editor.apply();
 
         ImageView i = new ImageView(getApplicationContext());

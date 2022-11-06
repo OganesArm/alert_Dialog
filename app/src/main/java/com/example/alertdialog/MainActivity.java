@@ -13,6 +13,9 @@ import android.widget.Button;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     Button butSave, butStart, butStart2;
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // кнопка продолжить игру
+//     кнопка продолжить игру
     int level;
     public void buttonClick1() {
         butSave.setOnClickListener(
