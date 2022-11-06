@@ -18,7 +18,7 @@ Button butMak2;
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 6);
+        editor.putInt("Level", 5);
         mak = save.getInt("Mak", 0); buttonClickMakHome();
         editor.apply();
     }

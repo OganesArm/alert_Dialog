@@ -20,7 +20,7 @@ public class go4 extends AppCompatActivity {
         setContentView(R.layout.activity_go4);
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 3);
+        editor.putInt("Level", 4);
         editor.putInt("Cot", 1);
         editor.apply();
 
@@ -33,7 +33,7 @@ public class go4 extends AppCompatActivity {
         toast.setGravity(Gravity.TOP, 0, 300);
         toast.show();
     }
-    // назначаем куда клавиша телефона назада отправит пользователя!
+        // назначаем куда клавиша телефона назада отправит пользователя!
     public void onBackPressed(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

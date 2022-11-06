@@ -25,7 +25,7 @@ Button butMak2;
         setContentView(R.layout.activity_go6);
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 7);
+        editor.putInt("Level", 6);
         editor.putInt("Victory", 1);
         editor.apply();
 

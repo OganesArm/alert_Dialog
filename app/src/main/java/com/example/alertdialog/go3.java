@@ -21,7 +21,7 @@ public class go3 extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 2);
+        editor.putInt("Level", 3);
         editor.apply();
         mak = save.getInt("Mak", 0); buttonClickMakHome();
 

@@ -17,7 +17,7 @@ public class go2 extends AppCompatActivity {
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
-        editor.putInt("Level", 1);
+        editor.putInt("Level", 2);
         editor.apply();
     }
     // назначаем куда клавиша телефона назада отправит пользователя!

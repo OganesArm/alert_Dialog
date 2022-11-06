@@ -41,85 +41,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//     кнопка продолжить игру
-    int level;
+// сохранение и загрузка сохранения
+int level;
+    public static void main(String[] args) {
+        Map<Integer, Class> activities = new HashMap<Integer, Class>();
+        activities.put(0, go1.class);
+        activities.put(1, go2.class);
+        activities.put(2, go3.class);
+        activities.put(3, go4.class);
+        activities.put(4, go5.class);
+        activities.put(5, go6.class);
+        activities.put(6, go6.class);
+        activities.put(7, go6.class);
+
+    }
+
     public void buttonClick1() {
         butSave.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        switch (level) {
-                            case 0:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go1.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) {//
-                                }
-                                break;
-
-                            case 1:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go2.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) {  //
-                                }
-                                break;
-                            case 2:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go3.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            case 3:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go4.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            case 4:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, mak1.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            case 5:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, Mak2.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            case 6:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go5.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            case 7:
-                                try {
-                                    Intent intent = new Intent(MainActivity.this, go6.class);
-                                    startActivity(intent);
-                                    finish();
-                                } catch (Exception e) { //
-                                }
-                                break;
-                            default:
-                                break;
+                        try {
+                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
+                            Intent intent = new Intent(MainActivity.this, clazz);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e) { //
                         }
                     }
                 });
-// скрытие кнопок
+
         if  (level==0) {
             butStart2.setVisibility(View.GONE);
             butSave.setVisibility(View.GONE);
@@ -130,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
- //    вспдывающее окно
+ //    всплывающее окно
     private void vopros() {
 //      другой формат всплывающего уведомления  AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
@@ -164,8 +115,88 @@ public class MainActivity extends AppCompatActivity {
         // показ окна
         if (level >0) {
             dialog.show();
-        } else {}
-
+        } else {
+            }
         }
 }
 
+
+//     кнопка продолжить игру , старое сохранение!
+//   int level;
+//    public void buttonClick1() {
+//        butSave.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        switch (level) {
+//                            case 0:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go1.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) {//
+//                                }
+//                                break;
+//
+//                            case 1:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go2.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) {  //
+//                                }
+//                                break;
+//                            case 2:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go3.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            case 3:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go4.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            case 4:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, mak1.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            case 5:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, Mak2.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            case 6:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go5.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            case 7:
+//                                try {
+//                                    Intent intent = new Intent(MainActivity.this, go6.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                } catch (Exception e) { //
+//                                }
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    }
+//                });
+// скрытие кнопок
