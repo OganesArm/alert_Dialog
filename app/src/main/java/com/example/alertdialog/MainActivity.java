@@ -28,60 +28,20 @@ public class MainActivity extends AppCompatActivity {
         butStart2 = findViewById(R.id.butStart2);
 
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-        level = save.getInt("Level", 0); buttonClick1();
+        level = save.getInt("Level", 0);
+        buttonClick1();
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
     }
-
     public void go1(View view) {
         Intent intent = new Intent(this, go1.class);
         startActivity(intent);
     }
+
     public void goProgress(View view) {
         Intent intent = new Intent(this, progress.class);
         startActivity(intent);
     }
-
-// сохранение и загрузка сохранения
-int level;
-    public static void main(String[] args) {
-        Map<Integer, Class> activities = new HashMap<Integer, Class>();
-        activities.put(0, go1.class);
-        activities.put(1, go2.class);
-        activities.put(2, go3.class);
-        activities.put(3, go4.class);
-        activities.put(4, go5.class);
-        activities.put(5, go6.class);
-        activities.put(6, go6.class);
-        activities.put(7, go6.class);
-
-    }
-
-    public void buttonClick1() {
-        butSave.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
-                            Intent intent = new Intent(MainActivity.this, clazz);
-                            startActivity(intent);
-                            finish();
-                        } catch (Exception e) { //
-                        }
-                    }
-                });
-
-        if  (level==0) {
-            butStart2.setVisibility(View.GONE);
-            butSave.setVisibility(View.GONE);
-
-        } else {
-            butStart.setVisibility(View.VISIBLE);
-            butSave.setVisibility(View.VISIBLE);
-        }
-    }
-
- //    всплывающее окно
+    //    всплывающее окно
     private void vopros() {
 //      другой формат всплывающего уведомления  AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
@@ -96,7 +56,7 @@ int level;
 
 
         //     кнопка отмены вызова всплывающего окна
-        dialog.setNeutralButton("Отменить", new DialogInterface.OnClickListener()  {
+        dialog.setNeutralButton("Отменить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 dialogInterface.dismiss();
@@ -113,13 +73,51 @@ int level;
             }
         });
         // показ окна
-        if (level >0) {
+        if (level > 0) {
             dialog.show();
         } else {
-            }
         }
-}
+    }
 
+
+    // сохранение и загрузка сохранения
+    int level;
+
+    public static void main(String[] args) {
+        Map<Integer, Class> activities = new HashMap<Integer, Class>();
+        activities.put(0, go1.class);
+        activities.put(2, go2.class);
+        activities.put(3, go3.class);
+        activities.put(4, go4.class);
+        activities.put(5, go5.class);
+        activities.put(6, go6.class);
+    }
+
+    public void buttonClick1() {
+        butSave.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
+                            Intent intent = new Intent(MainActivity.this, clazz);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e) { //
+                        }
+                    }
+                });
+// скрываем и показываем нужные кнопки
+        if (level == 0) {
+            butStart2.setVisibility(View.GONE);
+            butSave.setVisibility(View.GONE);
+
+        } else {
+            butStart.setVisibility(View.VISIBLE);
+            butSave.setVisibility(View.VISIBLE);
+        }
+    }
+}
 
 //     кнопка продолжить игру , старое сохранение!
 //   int level;
