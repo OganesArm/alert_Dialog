@@ -19,6 +19,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     Button butSave, butStart, butStart2;
 
+    private View mDecorView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,18 @@ public class MainActivity extends AppCompatActivity {
         level = save.getInt("Level", 0);
         buttonClick1();
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
+
+// скрываем кнопки навигации и верхнее меню!
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
     }
     public void go1(View view) {
         Intent intent = new Intent(this, go1.class);

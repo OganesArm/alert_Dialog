@@ -34,5 +34,5 @@
 </resources>
 
 <!--<item name="android:alpha">0.95</item> уровень Прозрачноссти-->
-<!--<item name="android:padding">20dp</item> отступы текста от границ КНОПКИ-->
+<!--<item name="android:padding">20dp</item> отступы текста от внутренних границ КНОПКИ-->
 <!--<item name="android:textStyle">bold</item> тип текста-->
