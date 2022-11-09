@@ -19,7 +19,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     Button butSave, butStart, butStart2;
 
-    private View mDecorView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
