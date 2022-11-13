@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goTelegram(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/+VQIYcEdbh5w4YjAy"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));
         startActivity(browserIntent);
     }
     public void goProgress(View view) {
