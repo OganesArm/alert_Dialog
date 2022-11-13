@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+
+
 //     кнопка продолжить игру , старое сохранение!
 //   int level;
 //    public void buttonClick1() {

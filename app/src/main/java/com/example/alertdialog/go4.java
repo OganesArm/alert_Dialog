@@ -27,14 +27,14 @@ TextView textView;
         textView = findViewById(R.id.textView);
         size = save.getInt("size", 0);
 
-        ImageView i = new ImageView(getApplicationContext());
-        i.setImageResource(R.drawable.cot);
-
-        Toast toast= new Toast(getApplicationContext());
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(i);
-        toast.setGravity(Gravity.TOP, 0, 300);
-        toast.show();
+//        ImageView i = new ImageView(getApplicationContext());
+//        i.setImageResource(R.drawable.cot);
+//
+//        Toast toast= new Toast(getApplicationContext());
+//        toast.setDuration(Toast.LENGTH_SHORT);
+//        toast.setView(i);
+//        toast.setGravity(Gravity.TOP, 0, 300);
+//        toast.show();
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -47,16 +47,28 @@ TextView textView;
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
 
-        if (size==1) {
+        if (size==10) {
             textView.setTextSize(10);
-        } if (size==2)   {
-            textView.setTextSize(50);
-        } if (size==3)   {
+        } if (size==12)   {
+            textView.setTextSize(12);
+        } if (size==14)   {
+            textView.setTextSize(14);
+        } if (size==16)   {
+            textView.setTextSize(16);
+        } if (size==18)   {
+            textView.setTextSize(18);
+        } if (size==20) {
+            textView.setTextSize(20);
+        } if (size==22)   {
+            textView.setTextSize(22);
+        } if (size==24)   {
+            textView.setTextSize(24);
+        } if (size==26)   {
+            textView.setTextSize(26);
+        } if (size==28)   {
+            textView.setTextSize(28);
+        } if (size==30)   {
             textView.setTextSize(30);
-        } if (size==4)   {
-            textView.setTextSize(40);
-        } if (size==5)   {
-            textView.setTextSize(50);
         }
     }
     int size;
