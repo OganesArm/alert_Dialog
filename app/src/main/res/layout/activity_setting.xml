@@ -14,11 +14,11 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="148dp"
         android:padding="6dp"
+        android:background="#EAEAEA"
         android:min="10"
         android:max="30"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
-
 
     <TextView
         android:id="@+id/seekBarValue"
