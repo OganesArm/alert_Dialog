@@ -25,7 +25,7 @@
             android:text="@string/scenario2"
             android:textAlignment="gravity"
             android:textColor="#F0FFF9F9"
-            android:textSize="17sp" />
+            android:textSize="17dp" />
 
         <Button
             android:id="@+id/button1"

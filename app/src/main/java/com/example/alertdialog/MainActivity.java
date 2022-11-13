@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, go1.class);
         startActivity(intent);
     }
+    public void goSetting(View view) {
+        Intent intent = new Intent(this, setting.class);
+        startActivity(intent);
+    }
 
     public void goTelegram(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));

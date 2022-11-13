@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.alertdialog.R;
 
 public class go4 extends AppCompatActivity {
-
+TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,8 @@ public class go4 extends AppCompatActivity {
         editor.putInt("Level", 4);
         editor.putInt("Cot", 1);
         editor.apply();
+        textView = findViewById(R.id.textView);
+        size = save.getInt("size", 0);
 
         ImageView i = new ImageView(getApplicationContext());
         i.setImageResource(R.drawable.cot);
@@ -42,7 +45,21 @@ public class go4 extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LOW_PROFILE
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
+
+        if (size==1) {
+            textView.setTextSize(10);
+        } if (size==2)   {
+            textView.setTextSize(50);
+        } if (size==3)   {
+            textView.setTextSize(30);
+        } if (size==4)   {
+            textView.setTextSize(40);
+        } if (size==5)   {
+            textView.setTextSize(50);
+        }
     }
+    int size;
         // назначаем куда клавиша телефона назада отправит пользователя!
     public void onBackPressed(){
         Intent intent = new Intent(this, MainActivity.class);
