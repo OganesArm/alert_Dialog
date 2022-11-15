@@ -36,44 +36,34 @@ int size;
         if (size == 10) {
             seekBar.setProgress(10);
             editor.apply();
-        }
-        if (size == 12) {
+        } if (size == 12) {
             seekBar.setProgress(12);
             editor.apply();
-        }
-        if (size == 14) {
+        } if (size == 14) {
             seekBar.setProgress(14);
             editor.apply();
-        }
-        if (size == 16) {
+        } if (size == 16) {
             seekBar.setProgress(16);
             editor.apply();
-        }
-        if (size == 18) {
+        } if (size == 18) {
             seekBar.setProgress(18);
             editor.apply();
-        }
-        if (size == 20) {
+        } if (size == 20) {
             seekBar.setProgress(20);
             editor.apply();
-        }
-        if (size == 22) {
+        } if (size == 22) {
             seekBar.setProgress(22);
             editor.apply();
-        }
-        if (size == 24) {
+        } if (size == 24) {
             seekBar.setProgress(24);
             editor.apply();
-        }
-        if (size == 26) {
+        } if (size == 26) {
             seekBar.setProgress(26);
             editor.apply();
-        }
-        if (size == 28) {
+        } if (size == 28) {
             seekBar.setProgress(28);
             editor.apply();
-        }
-        if (size == 30) {
+        } if (size == 30) {
             seekBar.setProgress(30);
             editor.apply();
         }
@@ -82,35 +72,25 @@ int size;
 // устанавливаем размер текста для самой надписи "текущий размер"
         if (size == 10) {
             textView.setTextSize(10);
-        }
-        if (size == 12) {
+        } if (size == 12) {
             textView.setTextSize(12);
-        }
-        if (size == 14) {
+        } if (size == 14) {
             textView.setTextSize(14);
-        }
-        if (size == 16) {
+        } if (size == 16) {
             textView.setTextSize(16);
-        }
-        if (size == 18) {
+        } if (size == 18) {
             textView.setTextSize(18);
-        }
-        if (size == 20) {
+        } if (size == 20) {
             textView.setTextSize(20);
-        }
-        if (size == 22) {
+        } if (size == 22) {
             textView.setTextSize(22);
-        }
-        if (size == 24) {
+        } if (size == 24) {
             textView.setTextSize(24);
-        }
-        if (size == 26) {
+        } if (size == 26) {
             textView.setTextSize(26);
-        }
-        if (size == 28) {
+        } if (size == 28) {
             textView.setTextSize(28);
-        }
-        if (size == 30) {
+        } if (size == 30) {
             textView.setTextSize(30);
         }
 // в зависимости от прогресса передает нужный size.
@@ -123,62 +103,52 @@ int size;
                     textView.setTextSize(10);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 12) {
+                } if (progress == 12) {
                     editor.putInt("size", 12);
                     textView.setTextSize(12);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 14) {
+                } if (progress == 14) {
                     editor.putInt("size", 14);
                     textView.setTextSize(14);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 16) {
+                } if (progress == 16) {
                     editor.putInt("size", 16);
                     textView.setTextSize(16);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 18) {
+                } if (progress == 18) {
                     editor.putInt("size", 18);
                     textView.setTextSize(18);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 20) {
+                } if (progress == 20) {
                     editor.putInt("size", 20);
                     textView.setTextSize(20);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 22) {
+                } if (progress == 22) {
                     editor.putInt("size", 22);
                     textView.setTextSize(22);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 24) {
+                } if (progress == 24) {
                     editor.putInt("size", 24);
                     textView.setTextSize(24);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 26) {
+                } if (progress == 26) {
                     editor.putInt("size", 26);
                     textView.setTextSize(26);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 28) {
+                } if (progress == 28) {
                     editor.putInt("size", 28);
                     textView.setTextSize(28);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
-                }
-                if (progress == 30) {
+                } if (progress == 30) {
                     editor.putInt("size", 30);
                     textView.setTextSize(30);
                     editor.apply();
@@ -187,18 +157,15 @@ int size;
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) { }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-
+            public void onStopTrackingTouch(SeekBar seekBar) { }
         });
     }
+
+
+
+
 }
 
 
