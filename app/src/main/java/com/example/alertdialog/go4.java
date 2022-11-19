@@ -2,8 +2,10 @@ package com.example.alertdialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,8 +15,16 @@ import android.widget.Toast;
 
 import com.example.alertdialog.R;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class go4 extends AppCompatActivity {
 TextView textView;
+    private MediaPlayer musicSound;
+    TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,32 +38,7 @@ TextView textView;
         textView = findViewById(R.id.textView);
         int size;
         size = save.getInt("size", 0);
-
-
-        if (size==10) {
-            textView.setTextSize(10);
-        } if (size==12)   {
-            textView.setTextSize(12);
-        } if (size==14)   {
-            textView.setTextSize(14);
-        } if (size==16)   {
-            textView.setTextSize(16);
-        } if (size==18)   {
-            textView.setTextSize(18);
-        } if (size==20) {
-            textView.setTextSize(20);
-        } if (size==22)   {
-            textView.setTextSize(22);
-        } if (size==24)   {
-            textView.setTextSize(24);
-        } if (size==26)   {
-            textView.setTextSize(26);
-        } if (size==28)   {
-            textView.setTextSize(28);
-        } if (size==30)   {
-            textView.setTextSize(30);
-        }
-
+        textView.setTextSize(size); //устанавливаем размер текста в зависимости какой size
 
         textView.setText(String.valueOf("      Стас повернул дверную ручку и вошел в захламленный кабинет. Раньше здесь, вероятно, обитали работники коммунальных служб, так как на полу по обе стороны от входа лежали какие-то пластиковые трубы, скрученные провода и ящики с сантехникой. Теперь поверх всего этого барахла навалили горы обуви, части оружий и одежду, кое-где даже перепачканную в крови. Пол покрывал истоптанный протертый ковер. Два шкафа с документами, три письменных стола, поставленные буквой «Т» - все это также было завалено различным барахлом и пустыми бутылками из-под пива и водки. Воняло куревом. Сам Корнилов не курил, поэтому запах ударил в нос и заставил поморщиться. \n" +
                 "      Кузнецов стоял спиной у окна и изучал какие-то документы. А вид ему было сорок пять. Котко подстриженные светлые волосы, вытянутое лицо и худощавое телосложение. На нем была черная спортивная одежда, и, вообще, сам по себе он выглядел человеком спортивным. \n" +
@@ -100,7 +85,78 @@ TextView textView;
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LOW_PROFILE
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
     }
+
+
+
+    //Загрузка имени
+    public void getData(View view) {
+        try {
+            FileInputStream fileInput = openFileInput("user_data.txt");
+            InputStreamReader reader = new InputStreamReader(fileInput);
+            BufferedReader buffer = new BufferedReader(reader);
+            StringBuffer strBuffer = new StringBuffer();
+            String lines;
+            while ((lines = buffer.readLine()) != null) {
+                strBuffer.append("Добро пожаловать, " +lines);
+            }
+            textView2.setText(strBuffer.toString());
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } }
+//    int music;
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        stopService(new Intent(this, MyService.class));
+//
+//    }
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        soundPlay2(musicSound);
+//    }
+//    @Override
+//    protected void onStart(){
+//        super.onStart();
+//        soundPlay(musicSound);
+//    }
+//    public void soundPlay2(MediaPlayer sound) {
+//        if (sound.isPlaying()) {
+//            sound.pause();
+//            sound.release();
+//        } else {
+//
+//        }
+//    }
+//
+//    public void soundPlay(MediaPlayer sound) {
+//        if (sound.isPlaying()) {
+//
+//        } else
+//
+//            sound.start();
+//        sound.setLooping(true);  }
+
+//
+//    int length;
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        musicSound.pause();
+//        length = musicSound.getCurrentPosition();
+//    }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        musicSound.seekTo(length);
+//        musicSound.start();
+//    }
         // назначаем куда клавиша телефона назада отправит пользователя!
     public void onBackPressed(){
         Intent intent = new Intent(this, MainActivity.class);

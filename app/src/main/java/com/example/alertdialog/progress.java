@@ -2,6 +2,7 @@ package com.example.alertdialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -16,13 +17,16 @@ public class progress extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
 
+        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = save.edit();
+        editor.putInt("Music",1);
+        editor.apply();
+        victory = save.getInt("Victory", 0);
+        cot = save.getInt("Cot", 0);
+
         imageView=findViewById(R.id.imageView);
         imageView2=findViewById(R.id.imageView2);
 
-
-        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-        victory = save.getInt("Victory", 0);
-        cot = save.getInt("Cot", 0);
 
         if  (victory==1) {
             imageView.setVisibility(View.VISIBLE);
@@ -34,6 +38,12 @@ public class progress extends AppCompatActivity {
             imageView2.setVisibility(View.GONE);
         }
 
+    }
+
+
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
 

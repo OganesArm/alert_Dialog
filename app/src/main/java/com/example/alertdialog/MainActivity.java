@@ -1,25 +1,59 @@
 package com.example.alertdialog;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.content.ContentValues.TAG;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.Application;
+import android.content.ComponentName;
+import android.content.ContentUris;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetFileDescriptor;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import kotlin.Unit;
 
 public class MainActivity extends AppCompatActivity {
     Button butSave, butStart, butStart2;
-
+    TextView textView2;
+    private MediaPlayer musicSound;
+int music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +61,15 @@ public class MainActivity extends AppCompatActivity {
         butStart = findViewById(R.id.butStart);
         butSave = findViewById(R.id.butSave);
         butStart2 = findViewById(R.id.butStart2);
-
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = save.edit();
         level = save.getInt("Level", 0);
+        music = save.getInt("Music", 0);
+        editor.putInt("Music",+1);
+        editor.apply();
+
+        textView2 = findViewById(R.id.textView2);
+
         buttonClick1();
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
 
@@ -44,24 +84,154 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LOW_PROFILE
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
-    }
-    public void go1(View view) {
-        Intent intent = new Intent(this, go1.class);
-        startActivity(intent);
-    }
+        //  textView2.setText(" " + music);
+       musicSound = MediaPlayer.create(this, R.raw.music);
+getData(textView2);
+      // startService(new Intent(this, MyService.class).putExtra("pause", true));
+
+
+        //     soundPlay(musicSound);
+
+        }
+
+//Загрузка имени
+    public void getData(View view) {
+        try {
+            FileInputStream fileInput = openFileInput("user_data.txt");
+            InputStreamReader reader = new InputStreamReader(fileInput);
+            BufferedReader buffer = new BufferedReader(reader);
+            StringBuffer strBuffer = new StringBuffer();
+            String lines;
+            while ((lines = buffer.readLine()) != null) {
+                strBuffer.append("Добро пожаловать, " +lines);
+            }
+            textView2.setText(strBuffer.toString());
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } }
+
+
+
+//
+//
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        startService(new Intent(this, MyService.class));
+//    }
+
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        stopService(new Intent(this, MyService.class));
+// }
+//
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        stopService(new Intent(this, MyService.class));
+//
+//    }
+
+//
+//@Override
+//protected void onPause(){
+//        super.onPause();
+//    stopService(new Intent(this, MyService.class).putExtra("pause", true)) ;
+//
+//    }
+
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        musicSound.stop();
+//    }
+//    @Override
+//    protected void onStart(){
+//        super.onStart();
+//        musicSound.start();
+//    }
+
+
+//    public void soundPlay2(MediaPlayer sound) {
+//        if (sound.isPlaying()) {
+//            sound.pause();
+//            sound.release();
+//        } else {
+//
+//        }
+//    }
+//
+//    public void soundPlay(MediaPlayer sound) {
+//        if (sound.isPlaying()) {
+//            sound.pause();
+//
+//        } else
+//            sound.start();
+//            sound.setLooping(true);  }
+//int length;
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        musicSound.pause();
+//        length = musicSound.getCurrentPosition();
+//    }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        musicSound.seekTo(length);
+//        musicSound.start();
+//    }
+//
+//    public void soundPlay(MediaPlayer sound) {
+//
+//        sound.isPlaying();
+//        sound.start();
+////        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+////        SharedPreferences.Editor editor = save.edit();
+////        editor.putInt("Music", 3);
+////        editor.apply();
+//    }
+//    public void stopPlay(MediaPlayer sound) {
+//
+//        sound.isPlaying();
+//        sound.pause();
+////        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+////        SharedPreferences.Editor editor = save.edit();
+////        editor.putInt("Music", 0);
+////        editor.apply();
+//    }
+
+//
     public void goSetting(View view) {
         Intent intent = new Intent(this, setting.class);
-        startActivity(intent);
+        startActivity(intent); SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = save.edit();editor.putInt("Music",+1);         editor.apply();
     }
+//
+//        if (music==0) {soundPlay(musicSound);} //выключена, но можно включить.
+//        if (music==1) {stopPlay(musicSound);}
+//        else if (music==3) { }
+
+    //}
 
     public void goTelegram(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));
         startActivity(browserIntent);
     }
+//    public void goProgress(View view) {
+//        startService(new Intent(this, MyService.class));
+//    }
     public void goProgress(View view) {
         Intent intent = new Intent(this, progress.class);
         startActivity(intent);
+
     }
+
     //    всплывающее окно
     private void vopros() {
 //      другой формат всплывающего уведомления  AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -138,10 +308,8 @@ public class MainActivity extends AppCompatActivity {
             butSave.setVisibility(View.VISIBLE);
         }
     }
+
 }
-
-
-
 
 
 
