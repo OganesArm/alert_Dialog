@@ -69,7 +69,8 @@ private final String save_key = "save_key";
 
 
         editor.apply();
-
+        String user = save.getString("User", toString()); //создаем переменную с именем пользователя
+        textView3.setText("Хотите изменить свое имя, "+user+"?");
 
 
 // прогресс передает нужный size.
@@ -141,7 +142,7 @@ private final String save_key = "save_key";
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
         //endregion
-   getData(textView3);
+//   getData(textView3);
    //     init();
     }
 
@@ -163,21 +164,21 @@ private final String save_key = "save_key";
 
 
 
-
-    public void getData(View view) {
-        try {
-            FileInputStream fileInput = openFileInput("user_data.txt");
-            InputStreamReader reader = new InputStreamReader(fileInput);
-            BufferedReader buffer = new BufferedReader(reader);
-            StringBuffer strBuffer = new StringBuffer();
-            String lines;
-            while ((lines = buffer.readLine()) != null) {
-                strBuffer.append("Хотите изменить ваше имя, ").append(lines).append("?"); //Вывод имени
-            }
-            textView3.setText(strBuffer.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } }
+//
+//    public void getData(View view) {
+//        try {
+//            FileInputStream fileInput = openFileInput("user_data.txt");
+//            InputStreamReader reader = new InputStreamReader(fileInput);
+//            BufferedReader buffer = new BufferedReader(reader);
+//            StringBuffer strBuffer = new StringBuffer();
+//            String lines;
+//            while ((lines = buffer.readLine()) != null) {
+//                strBuffer.append("Хотите изменить ваше имя, ").append(lines).append("?"); //Вывод имени
+//            }
+//            textView3.setText(strBuffer.toString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } }
     public void saveData (View view) {
         String user_name = editSave.getText().toString();
         try {
@@ -188,6 +189,11 @@ private final String save_key = "save_key";
 
             strBuffer.append("Здравствуйте, ").append(user_name).append("!");
             textView3.setText(strBuffer.toString());
+
+            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+            SharedPreferences.Editor editor = save.edit();
+            editor.putString("User", user_name);
+            editor.apply();
             Toast.makeText(setting.this, "Ваше имя изменено", Toast.LENGTH_SHORT).show();
             editSave.setText(""); //очистка поля
         } catch (IOException e) {

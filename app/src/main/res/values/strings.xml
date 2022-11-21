@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">alertDialog</string>
+    <string name="user">user</string>
 
 </resources>

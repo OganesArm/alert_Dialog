@@ -65,11 +65,12 @@ int music;
         SharedPreferences.Editor editor = save.edit();
         level = save.getInt("Level", 0);
         music = save.getInt("Music", 0);
-        editor.putInt("Music",+1);
+        String user = save.getString("User", toString()); //создаем переменную с именем пользователя
+       // editor.putInt("Music",+1);
         editor.apply();
 
         textView2 = findViewById(R.id.textView2);
-
+        textView2.setText("Добро пожаловать, " +user);
         buttonClick1();
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
 
@@ -86,7 +87,7 @@ int music;
 
         //  textView2.setText(" " + music);
        musicSound = MediaPlayer.create(this, R.raw.music);
-getData(textView2);
+
       // startService(new Intent(this, MyService.class).putExtra("pause", true));
 
 
@@ -94,29 +95,7 @@ getData(textView2);
 
         }
 
-//Загрузка имени
-    public void getData(View view) {
-        try {
-            FileInputStream fileInput = openFileInput("user_data.txt");
-            InputStreamReader reader = new InputStreamReader(fileInput);
-            BufferedReader buffer = new BufferedReader(reader);
-            StringBuffer strBuffer = new StringBuffer();
-            String lines;
-            while ((lines = buffer.readLine()) != null) {
-                strBuffer.append("Добро пожаловать, " +lines);
-            }
-            textView2.setText(strBuffer.toString());
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } }
-
-
-
-//
-//
 //    @Override
 //    public void onStart() {
 //        super.onStart();
