@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     Button butSave, butStart, butStart2;
     TextView textView2;
     private MediaPlayer musicSound;
-int music;
+    int music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +70,9 @@ int music;
         editor.apply();
 
         textView2 = findViewById(R.id.textView2);
-        textView2.setText("Добро пожаловать, " +user);
+        String text2 = "Добро пожаловать, " +user;
+        textView2.setText(text2);
+
         buttonClick1();
         butStart2.setOnClickListener(v -> vopros());      //вызывает функцию при нажатие кнопки
 

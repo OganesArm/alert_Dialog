@@ -1,0 +1,75 @@
+warning: in the working copy of 'app/src/main/java/com/example/alertdialog/setting.java', LF will be replaced by CRLF the next time Git touches it
+ .gitignore                                         |  15 [32m+[m
+ .idea/.gitignore                                   |   3 [32m+[m
+ .idea/compiler.xml                                 |   6 [32m+[m
+ .idea/gradle.xml                                   |  19 [32m+[m
+ .idea/misc.xml                                     |  17 [32m+[m
+ .idea/vcs.xml                                      |   6 [32m+[m
+ app/.gitignore                                     |   1 [32m+[m
+ app/build.gradle                                   |  38 [32m++[m
+ app/proguard-rules.pro                             |  21 [32m++[m
+ .../alertdialog/ExampleInstrumentedTest.java       |  26 [32m++[m
+ app/src/main/AndroidManifest.xml                   | 122 [32m+++++++[m
+ .../java/com/example/alertdialog/MainActivity.java | 405 [32m+++++++++++++++++++++[m
+ .../main/java/com/example/alertdialog/Mak2.java    |  31 [32m++[m
+ .../java/com/example/alertdialog/MyService.java    | 116 [32m++++++[m
+ app/src/main/java/com/example/alertdialog/go1.java |  45 [32m+++[m
+ app/src/main/java/com/example/alertdialog/go2.java |  45 [32m+++[m
+ app/src/main/java/com/example/alertdialog/go3.java | 119 [32m++++++[m
+ app/src/main/java/com/example/alertdialog/go4.java | 170 [32m+++++++++[m
+ app/src/main/java/com/example/alertdialog/go5.java |  67 [32m++++[m
+ app/src/main/java/com/example/alertdialog/go6.java |  82 [32m+++++[m
+ .../main/java/com/example/alertdialog/mak1.java    |  31 [32m++[m
+ .../java/com/example/alertdialog/progress.java     |  49 [32m+++[m
+ .../main/java/com/example/alertdialog/setting.java | 235 [32m++++++++++++[m
+ .../main/java/com/example/alertdialog/vopros.java  |  18 [32m+[m
+ .../res/drawable-v24/ic_launcher_foreground.xml    |  30 [32m++[m
+ app/src/main/res/drawable/cot.jpg                  | Bin [31m0[m -> [32m41981[m bytes
+ .../main/res/drawable/ic_launcher_background.xml   | 170 [32m+++++++++[m
+ app/src/main/res/drawable/telegaphoto.png          | Bin [31m0[m -> [32m10359[m bytes
+ app/src/main/res/drawable/victory.jpg              | Bin [31m0[m -> [32m11085[m bytes
+ app/src/main/res/font/acme.xml                     |   7 [32m+[m
+ app/src/main/res/font/allan.xml                    |   7 [32m+[m
+ app/src/main/res/font/noto_sans.xml                |   7 [32m+[m
+ app/src/main/res/layout/activity_go1.xml           |  19 [32m+[m
+ app/src/main/res/layout/activity_go2.xml           |  31 [32m++[m
+ app/src/main/res/layout/activity_go3.xml           |  29 [32m++[m
+ app/src/main/res/layout/activity_go4.xml           |  39 [32m++[m
+ app/src/main/res/layout/activity_go5.xml           |  29 [32m++[m
+ app/src/main/res/layout/activity_go6.xml           |  52 [32m+++[m
+ app/src/main/res/layout/activity_main.xml          |  86 [32m+++++[m
+ app/src/main/res/layout/activity_mak1.xml          |  20 [32m+[m
+ app/src/main/res/layout/activity_mak2.xml          |  21 [32m++[m
+ app/src/main/res/layout/activity_progress.xml      |  32 [32m++[m
+ app/src/main/res/layout/activity_setting.xml       |  77 [32m++++[m
+ app/src/main/res/layout/activity_vopros.xml        |   9 [32m+[m
+ app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml |   5 [32m+[m
+ .../res/mipmap-anydpi-v26/ic_launcher_round.xml    |   5 [32m+[m
+ app/src/main/res/mipmap-hdpi/ic_launcher.webp      | Bin [31m0[m -> [32m1404[m bytes
+ .../main/res/mipmap-hdpi/ic_launcher_round.webp    | Bin [31m0[m -> [32m2898[m bytes
+ app/src/main/res/mipmap-mdpi/ic_launcher.webp      | Bin [31m0[m -> [32m982[m bytes
+ .../main/res/mipmap-mdpi/ic_launcher_round.webp    | Bin [31m0[m -> [32m1772[m bytes
+ app/src/main/res/mipmap-xhdpi/ic_launcher.webp     | Bin [31m0[m -> [32m1900[m bytes
+ .../main/res/mipmap-xhdpi/ic_launcher_round.webp   | Bin [31m0[m -> [32m3918[m bytes
+ app/src/main/res/mipmap-xxhdpi/ic_launcher.webp    | Bin [31m0[m -> [32m2884[m bytes
+ .../main/res/mipmap-xxhdpi/ic_launcher_round.webp  | Bin [31m0[m -> [32m5914[m bytes
+ app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp   | Bin [31m0[m -> [32m3844[m bytes
+ .../main/res/mipmap-xxxhdpi/ic_launcher_round.webp | Bin [31m0[m -> [32m7778[m bytes
+ app/src/main/res/raw/music.wav                     | Bin [31m0[m -> [32m43543562[m bytes
+ app/src/main/res/values-night/themes.xml           |  34 [32m++[m
+ app/src/main/res/values/colors.xml                 |  12 [32m+[m
+ app/src/main/res/values/font_certs.xml             |  17 [32m+[m
+ app/src/main/res/values/preloaded_fonts.xml        |   8 [32m+[m
+ app/src/main/res/values/strings.xml                |   5 [32m+[m
+ app/src/main/res/values/themes.xml                 |  38 [32m++[m
+ app/src/main/res/xml/backup_rules.xml              |  13 [32m+[m
+ app/src/main/res/xml/data_extraction_rules.xml     |  19 [32m+[m
+ .../com/example/alertdialog/ExampleUnitTest.java   |  17 [32m+[m
+ build.gradle                                       |   9 [32m+[m
+ gradle.properties                                  |  21 [32m++[m
+ gradle/wrapper/gradle-wrapper.jar                  | Bin [31m0[m -> [32m59203[m bytes
+ gradle/wrapper/gradle-wrapper.properties           |   6 [32m+[m
+ gradlew                                            | 185 [32m++++++++++[m
+ gradlew.bat                                        |  89 [32m+++++[m
+ settings.gradle                                    |  16 [32m+[m
+ 73 files changed, 2851 insertions(+)

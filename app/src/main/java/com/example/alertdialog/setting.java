@@ -32,8 +32,7 @@ public class setting extends AppCompatActivity {
 int size;
 EditText editSave;
 TextView textView3, textView4;
-private SharedPreferences pref;
-private final String save_key = "save_key";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,25 +54,22 @@ private final String save_key = "save_key";
         textView3 = findViewById(R.id.textView3);
         TextView textView4 = findViewById(R.id.textView4);
         editor.apply();
-        textView4.setTextSize(18);
-        textView3.setTextSize(18);
         textView4.setText(String.valueOf("Если это приложение работает, \nТо его написал Оганисян Оганес. \nЕсли нет, то я не знаю, кто его написал..."));
 
         //     musicSound = MediaPlayer.create(this, R.raw.music);
-        //region реализация size!
         SeekBar seekBar = findViewById(R.id.seekBar);
         TextView textView = findViewById(R.id.seekBarValue);
         seekBar.setProgress(size); // в зависимости какой size сохранен, такая позиция в школе и устанавливается.
-        textView.setTextSize(size); // устанавливаем размер текста для самой надписи "текущий размер"
         textView.setText(String.valueOf("Текущий размер:  " + size));// сама надпись
 
 
         editor.apply();
         String user = save.getString("User", toString()); //создаем переменную с именем пользователя
-        textView3.setText("Хотите изменить свое имя, "+user+"?");
+        String text3 = "Хотите изменить свое имя, "+user+"?";
+        textView3.setText(text3);
 
 
-// прогресс передает нужный size.
+// прогресс передает нужный size и устанавливает размер надписей, в том числе и для тестовой надписи.
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -81,56 +77,78 @@ private final String save_key = "save_key";
                 if (progress == 10) {
                     editor.putInt("size", 10);
                     textView.setTextSize(10);
+                    textView4.setTextSize(10);
+                    textView3.setTextSize(10);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 12) {
                     editor.putInt("size", 12);
                     textView.setTextSize(12);
+                    textView4.setTextSize(12);
+                    textView3.setTextSize(12);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 14) {
                     editor.putInt("size", 14);
                     textView.setTextSize(14);
+                    textView4.setTextSize(14);
+                    textView3.setTextSize(14);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 16) {
                     editor.putInt("size", 16);
                     textView.setTextSize(16);
+                    textView4.setTextSize(16);
+                    textView3.setTextSize(16);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 18) {
                     editor.putInt("size", 18);
                     textView.setTextSize(18);
+                    textView4.setTextSize(18);
+                    textView3.setTextSize(18);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 20) {
                     editor.putInt("size", 20);
                     textView.setTextSize(20);
+                    textView4.setTextSize(20);
+                    textView3.setTextSize(20);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 22) {
                     editor.putInt("size", 22);
                     textView.setTextSize(22);
+                    textView4.setTextSize(22);
+                    textView3.setTextSize(22);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 24) {
                     editor.putInt("size", 24);
                     textView.setTextSize(24);
+                    textView4.setTextSize(24);
+                    textView3.setTextSize(24);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 26) {
                     editor.putInt("size", 26);
                     textView.setTextSize(26);
+                    textView4.setTextSize(26);
+                    textView3.setTextSize(26);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 28) {
                     editor.putInt("size", 28);
                     textView.setTextSize(28);
+                    textView4.setTextSize(28);
+                    textView3.setTextSize(28);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 } if (progress == 30) {
                     editor.putInt("size", 30);
                     textView.setTextSize(30);
+                    textView4.setTextSize(30);
+                    textView3.setTextSize(30);
                     editor.apply();
                     textView.setText(String.valueOf("Текущий размер:  " + progress));
                 }
@@ -141,9 +159,6 @@ private final String save_key = "save_key";
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
-        //endregion
-//   getData(textView3);
-   //     init();
     }
 
 
@@ -163,28 +178,12 @@ private final String save_key = "save_key";
 
 
 
-
-//
-//    public void getData(View view) {
-//        try {
-//            FileInputStream fileInput = openFileInput("user_data.txt");
-//            InputStreamReader reader = new InputStreamReader(fileInput);
-//            BufferedReader buffer = new BufferedReader(reader);
-//            StringBuffer strBuffer = new StringBuffer();
-//            String lines;
-//            while ((lines = buffer.readLine()) != null) {
-//                strBuffer.append("Хотите изменить ваше имя, ").append(lines).append("?"); //Вывод имени
-//            }
-//            textView3.setText(strBuffer.toString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } }
     public void saveData (View view) {
         String user_name = editSave.getText().toString();
         try {
             FileOutputStream fileOutput = openFileOutput("user_data.txt", MODE_PRIVATE);
             fileOutput.write((user_name).getBytes());
-            StringBuffer strBuffer = new StringBuffer();
+            StringBuilder strBuffer = new StringBuilder();
             fileOutput.close();
 
             strBuffer.append("Здравствуйте, ").append(user_name).append("!");
@@ -200,9 +199,6 @@ private final String save_key = "save_key";
             e.printStackTrace();
         }
     }
-
-
-
 
 
 //
