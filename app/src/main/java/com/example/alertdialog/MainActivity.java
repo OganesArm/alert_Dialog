@@ -46,6 +46,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import kotlin.Unit;
 
@@ -91,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
        musicSound = MediaPlayer.create(this, R.raw.music);
 
       // startService(new Intent(this, MyService.class).putExtra("pause", true));
-
 
         //     soundPlay(musicSound);
 

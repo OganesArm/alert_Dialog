@@ -61,6 +61,9 @@ TextView textView3, textView4;
         TextView textView = findViewById(R.id.seekBarValue);
         seekBar.setProgress(size); // в зависимости какой size сохранен, такая позиция в школе и устанавливается.
         textView.setText(String.valueOf("Текущий размер:  " + size));// сама надпись
+        textView.setTextSize(size);
+        textView3.setTextSize(size);
+        textView4.setTextSize(size);
 
 
         editor.apply();
@@ -177,28 +180,22 @@ TextView textView3, textView4;
 //    }
 
 
-
     public void saveData (View view) {
         String user_name = editSave.getText().toString();
-        try {
-            FileOutputStream fileOutput = openFileOutput("user_data.txt", MODE_PRIVATE);
-            fileOutput.write((user_name).getBytes());
-            StringBuilder strBuffer = new StringBuilder();
-            fileOutput.close();
+            if (user_name.isEmpty()) {   //Проверка строчки если равно НОЛЬ
+                Toast.makeText(setting.this, "Пожалуйста, введите имя!", Toast.LENGTH_SHORT).show();
+                editSave.setText(""); //очистка поля
+            } else {
+                SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+                SharedPreferences.Editor editor = save.edit();
+                editor.putString("User", user_name);
+                editor.apply();
+                String text3="Здравствуйте, "+ user_name +"!";
+                textView3.setText(text3);
+                Toast.makeText(setting.this, "Ваше имя изменено", Toast.LENGTH_SHORT).show();
+                editSave.setText(""); //очистка поля
 
-            strBuffer.append("Здравствуйте, ").append(user_name).append("!");
-            textView3.setText(strBuffer.toString());
-
-            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-            SharedPreferences.Editor editor = save.edit();
-            editor.putString("User", user_name);
-            editor.apply();
-            Toast.makeText(setting.this, "Ваше имя изменено", Toast.LENGTH_SHORT).show();
-            editSave.setText(""); //очистка поля
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    } }
 
 
 //
@@ -233,3 +230,47 @@ TextView textView3, textView4;
         startActivity(intent);
     }
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Старая реализация сохранения через через ТХТ файл
+//    public void saveData (View view) {
+//        String user_name = editSave.getText().toString();
+//        try {
+//            FileOutputStream fileOutput = openFileOutput("user_name.txt", MODE_PRIVATE);
+//            fileOutput.write((user_name).getBytes());
+//            StringBuilder strBuffer = new StringBuilder();
+//            fileOutput.close();
+//
+//            strBuffer.append("Здравствуйте, ").append(user_name).append("!");
+//            textView3.setText(strBuffer.toString());
+//
+//            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+//            SharedPreferences.Editor editor = save.edit();
+//            editor.putString("User", user_name);
+//            editor.apply();
+//            Toast.makeText(setting.this, "Ваше имя изменено", Toast.LENGTH_SHORT).show();
+//            editSave.setText(""); //очистка поля
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
