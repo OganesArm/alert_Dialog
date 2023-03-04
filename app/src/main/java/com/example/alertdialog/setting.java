@@ -164,7 +164,17 @@ TextView textView3, textView4;
         });
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        startService(new Intent(this, MyService.class));
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        stopService(new Intent(this, MyService.class));
+    }
 //    public void onClickSave(View view){
 //        SharedPreferences.Editor edit = pref.edit();
 //        edit.putString(save_key,editSave.getText().toString());

@@ -97,6 +97,140 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+//  @Override
+//  public void onStart() {
+//      super.onStart();
+//      startService(new Intent(this, MyService.class));
+//  }
+
+//  @Override
+//  public void onPause() {
+//      super.onPause();
+//      stopService(new Intent(this, MyService.class));
+// }
+//
+//    @Override
+//    protected void onStop(){
+//        super.onStop();
+//        stopService(new Intent(this, MyService.class));
+//
+//    }
+
+
+
+    //
+    public void goSetting(View view) {
+        Intent intent = new Intent(this, setting.class);
+        startActivity(intent); SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = save.edit();editor.putInt("Music",+1);         editor.apply();
+    }
+//
+//        if (music==0) {soundPlay(musicSound);} //выключена, но можно включить.
+//        if (music==1) {stopPlay(musicSound);}
+//        else if (music==3) { }
+
+    //}
+
+    public void goTelegram(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));
+        startActivity(browserIntent);
+    }
+//    public void goProgress(View view) {
+//        startService(new Intent(this, MyService.class));
+//    }
+    public void goProgress(View view) {
+        Intent intent = new Intent(this, progress.class);
+        startActivity(intent);
+    }
+    public void go1(View view) {
+        Intent intent = new Intent(this, go1.class);
+        startActivity(intent);
+    }
+
+    //    всплывающее окно
+    private void vopros() {
+//      другой формат всплывающего уведомления  AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
+        dialog.setTitle("Вы уверены что хотите начать новую игру?"); //заголовок для всполывающего окна
+
+        dialog.setMessage("Все сохраненные данные сотрутся"); // подпись под заголовком
+//      dialog.setCancelable(false); //всплывающее окно невозможно сбросить/закрыть.
+
+        LayoutInflater inflater = LayoutInflater.from(this); //создали объект
+        View vopros_window = inflater.inflate(R.layout.activity_vopros, null); // получаем нужный шаблон
+        dialog.setView(vopros_window); // шаблон для всплывающего окна
+
+
+        //     кнопка отмены вызова всплывающего окна
+        dialog.setNeutralButton("Отменить", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        dialog.setPositiveButton("Начать игру заново", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                dialogInterface.dismiss();
+                Intent intent = new Intent(MainActivity.this, go1.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        // показ окна
+        if (level > 0) {
+            dialog.show();
+        } else {
+        }
+    }
+
+
+    // сохранение и загрузка сохранения
+    int level;
+
+    public static void main(String[] args) {
+        Map<Integer, Class> activities = new HashMap<Integer, Class>();
+        activities.put(0, go1.class);
+        activities.put(2, go2.class);
+        activities.put(3, go3.class);
+        activities.put(4, go4.class);
+        activities.put(5, go5.class);
+        activities.put(6, go6.class);
+    }
+
+    public void buttonClick1() {
+        butSave.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
+                            Intent intent = new Intent(MainActivity.this, clazz);
+                            startActivity(intent);
+                            finish();
+                        } catch (Exception e) { //
+                        }
+                    }
+                });
+// скрываем и показываем нужные кнопки
+        if (level == 0) {
+            butStart2.setVisibility(View.GONE);
+            butSave.setVisibility(View.GONE);
+
+        } else {
+            butStart.setVisibility(View.VISIBLE);
+            butSave.setVisibility(View.VISIBLE);
+        }
+    }
+
+}
+
+
+
+
+
+
 
 //    @Override
 //    public void onStart() {
@@ -186,117 +320,6 @@ public class MainActivity extends AppCompatActivity {
 ////        editor.putInt("Music", 0);
 ////        editor.apply();
 //    }
-
-//
-    public void goSetting(View view) {
-        Intent intent = new Intent(this, setting.class);
-        startActivity(intent); SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-        SharedPreferences.Editor editor = save.edit();editor.putInt("Music",+1);         editor.apply();
-    }
-//
-//        if (music==0) {soundPlay(musicSound);} //выключена, но можно включить.
-//        if (music==1) {stopPlay(musicSound);}
-//        else if (music==3) { }
-
-    //}
-
-    public void goTelegram(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));
-        startActivity(browserIntent);
-    }
-//    public void goProgress(View view) {
-//        startService(new Intent(this, MyService.class));
-//    }
-    public void goProgress(View view) {
-        Intent intent = new Intent(this, progress.class);
-        startActivity(intent);
-
-    }
-
-    //    всплывающее окно
-    private void vopros() {
-//      другой формат всплывающего уведомления  AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme);
-        dialog.setTitle("Вы уверены что хотите начать новую игру?"); //заголовок для всполывающего окна
-
-        dialog.setMessage("Все сохраненные данные сотрутся"); // подпись под заголовком
-//      dialog.setCancelable(false); //всплывающее окно невозможно сбросить/закрыть.
-
-        LayoutInflater inflater = LayoutInflater.from(this); //создали объект
-        View vopros_window = inflater.inflate(R.layout.activity_vopros, null); // получаем нужный шаблон
-        dialog.setView(vopros_window); // шаблон для всплывающего окна
-
-
-        //     кнопка отмены вызова всплывающего окна
-        dialog.setNeutralButton("Отменить", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        dialog.setPositiveButton("Начать игру заново", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
-                Intent intent = new Intent(MainActivity.this, go1.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        // показ окна
-        if (level > 0) {
-            dialog.show();
-        } else {
-        }
-    }
-
-
-    // сохранение и загрузка сохранения
-    int level;
-
-    public static void main(String[] args) {
-        Map<Integer, Class> activities = new HashMap<Integer, Class>();
-        activities.put(0, go1.class);
-        activities.put(2, go2.class);
-        activities.put(3, go3.class);
-        activities.put(4, go4.class);
-        activities.put(5, go5.class);
-        activities.put(6, go6.class);
-    }
-
-    public void buttonClick1() {
-        butSave.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
-                            Intent intent = new Intent(MainActivity.this, clazz);
-                            startActivity(intent);
-                            finish();
-                        } catch (Exception e) { //
-                        }
-                    }
-                });
-// скрываем и показываем нужные кнопки
-        if (level == 0) {
-            butStart2.setVisibility(View.GONE);
-            butSave.setVisibility(View.GONE);
-
-        } else {
-            butStart.setVisibility(View.VISIBLE);
-            butSave.setVisibility(View.VISIBLE);
-        }
-    }
-
-}
-
-
-
-
-
-
 
 
 
