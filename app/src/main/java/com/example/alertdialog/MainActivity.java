@@ -35,6 +35,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.alertdialog.location1.a1;
+import com.example.alertdialog.location1.go13;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.BufferedReader;
@@ -64,14 +66,17 @@ public class MainActivity extends AppCompatActivity {
         butStart2 = findViewById(R.id.butStart2);
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor editor = save.edit();
+        v();
+        editor.apply();
+
         level = save.getInt("Level", 0);
+        level_A = save.getInt("Level_A", 0);
         music = save.getInt("Music", 0);
         String user = save.getString("User", toString()); //создаем переменную с именем пользователя
-       // editor.putInt("Music",+1);
         editor.apply();
 
         textView2 = findViewById(R.id.textView2);
-        String text2 = "Добро пожаловать, " +user;
+        String text2 = "Добро пожаловать, " +level_A; // +user;
         textView2.setText(text2);
 
         buttonClick1();
@@ -88,56 +93,19 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LOW_PROFILE
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
-        //  textView2.setText(" " + music);
-       musicSound = MediaPlayer.create(this, R.raw.music);
-
-      // startService(new Intent(this, MyService.class).putExtra("pause", true));
-
-        //     soundPlay(musicSound);
-
         }
 
-//  @Override
-//  public void onStart() {
-//      super.onStart();
-//      startService(new Intent(this, MyService.class));
-//  }
 
-//  @Override
-//  public void onPause() {
-//      super.onPause();
-//      stopService(new Intent(this, MyService.class));
-// }
-//
-//    @Override
-//    protected void onStop(){
-//        super.onStop();
-//        stopService(new Intent(this, MyService.class));
-//
-//    }
-
-
-
-    //
     public void goSetting(View view) {
         Intent intent = new Intent(this, setting.class);
-        startActivity(intent); SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-        SharedPreferences.Editor editor = save.edit();editor.putInt("Music",+1);         editor.apply();
+        startActivity(intent);
     }
-//
-//        if (music==0) {soundPlay(musicSound);} //выключена, но можно включить.
-//        if (music==1) {stopPlay(musicSound);}
-//        else if (music==3) { }
-
-    //}
 
     public void goTelegram(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/studio_apricot"));
         startActivity(browserIntent);
     }
-//    public void goProgress(View view) {
-//        startService(new Intent(this, MyService.class));
-//    }
+
     public void goProgress(View view) {
         Intent intent = new Intent(this, progress.class);
         startActivity(intent);
@@ -184,19 +152,42 @@ public class MainActivity extends AppCompatActivity {
         } else {
         }
     }
-
+    public void v(){
+        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences.Editor editor = save.edit();
+        editor.putInt("Level", 3);
+        editor.apply();
+    }
 
     // сохранение и загрузка сохранения
     int level;
+    int level_A;
+/*
+        Разобрались как работать с папками
+        порядок будет такой
+        mainActivity
+        menu
+        scenario1
+        scenario2
+        scenario3
 
+        в каждом оставляем в запасные места, если например всего 60 активити то следующую нумерацию
+        начинаем с 100, если всего 140 то можем сразу с 200 и т.д., на скорость работы приоложения не влияет
+        но за то оставляет запасные варианты.
+ */
     public static void main(String[] args) {
-        Map<Integer, Class> activities = new HashMap<Integer, Class>();
+        Map<Integer, Class<?>> activities = new HashMap<>();
         activities.put(0, go1.class);
         activities.put(2, go2.class);
         activities.put(3, go3.class);
         activities.put(4, go4.class);
         activities.put(5, go5.class);
         activities.put(6, go6.class);
+        activities.put(8, go8.class);
+        activities.put(9, go9.class);
+        activities.put(1, a1.class);
+        activities.put(13, com.example.alertdialog.location1.go13.class);
+
     }
 
     public void buttonClick1() {
@@ -205,11 +196,21 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         try {
-                            Class<?> clazz = Class.forName("com.example.alertdialog.go" + level);
-                            Intent intent = new Intent(MainActivity.this, clazz);
-                            startActivity(intent);
-                            finish();
+                            if (level<10) {
+                                Class<?> clazz = Class.forName(getPackageName() + ".go" + level);
+                                Intent intent = new Intent(MainActivity.this, clazz);
+                                startActivity(intent);
+                                finish();
+                            } if (level>10) {
+                                Class<?> clazz = Class.forName("com.example.alertdialog.location1.go" + level);
+                                Intent intent = new Intent(MainActivity.this, clazz);
+                                startActivity(intent);
+                                finish();
+                            }
+
+
                         } catch (Exception e) { //
+                            e.printStackTrace();
                         }
                     }
                 });

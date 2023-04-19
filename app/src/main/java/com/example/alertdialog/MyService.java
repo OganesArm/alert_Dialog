@@ -77,14 +77,14 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        musicSound = MediaPlayer.create(this, R.raw.music);
-        musicSound.setLooping(true);
+        //musicSound = MediaPlayer.create(this, R.raw.music);
+        //musicSound.setLooping(true);
 
     }
     //intent.getBooleanExtra("pause", false) == true тогда player.pause()
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        musicSound.start();
+        //musicSound.start();
         return START_STICKY;
     }
     @Override

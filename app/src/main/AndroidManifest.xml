@@ -14,7 +14,28 @@
         android:theme="@style/Theme.AlertDialog"
         tools:targetApi="31">
         <activity
-            android:name=".test"
+            android:name=".b11"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".b1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".go9"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".go8"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -34,28 +55,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".qu2"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".qu"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".progress"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".a1"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -100,6 +100,9 @@
             android:exported="false" />
         <activity
             android:name=".go2"
+            android:exported="false" />
+        <activity
+            android:name=".location1.go13"
             android:exported="false" />
         <activity
             android:name=".go1"

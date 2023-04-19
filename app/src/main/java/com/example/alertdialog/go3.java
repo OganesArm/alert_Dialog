@@ -27,6 +27,7 @@ public class go3 extends AppCompatActivity {
         editor.putInt("Level", 3);
         editor.apply();
         mak = save.getInt("Mak", 0); buttonClickMakHome();
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
